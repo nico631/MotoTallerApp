@@ -1,10 +1,82 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/main"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".RegistroActivity">
+    android:background="#F5F5F5">
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="24dp">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Orden de Servicio"
+            android:textSize="24sp"
+            android:textStyle="bold"
+            android:textColor="#1E293B"
+            android:layout_marginBottom="20dp" />
+
+        <EditText
+            android:id="@+id/etCliente"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Nombre del propietario"
+            android:inputType="textPersonName"
+            android:layout_marginBottom="12dp" />
+
+        <EditText
+            android:id="@+id/etMoto"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Modelo y cilindraje (Ej: DT 200)"
+            android:inputType="text"
+            android:layout_marginBottom="16dp" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Tipo de motor:"
+            android:textStyle="bold"
+            android:layout_marginBottom="8dp" />
+
+        <RadioGroup
+            android:id="@+id/rgMotor"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginBottom="16dp">
+
+            <RadioButton
+                android:id="@+id/rb2T"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="2 Tiempos"
+                android:checked="true"
+                android:layout_marginEnd="16dp" />
+
+            <RadioButton
+                android:id="@+id/rb4T"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="4 Tiempos" />
+        </RadioGroup>
+
+        <CheckBox
+            android:id="@+id/cbUrgente"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Servicio prioritario / urgente"
+            android:layout_marginBottom="24dp" />
+
+        <Button
+            android:id="@+id/btnEnviar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Registrar Orden"
+            android:padding="14dp" />
+
+    </LinearLayout>
+</ScrollView>

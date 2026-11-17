@@ -1,24 +1,35 @@
 package com.example.mototallerapp;
 
 import android.os.Bundle;
-
+import android.widget.Button;
+import android.widget.TextView;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.core.graphics.Insets;
-import androidx.core.view.ViewCompat;
-import androidx.core.view.WindowCompat;
-import androidx.core.view.WindowInsetsCompat;
 
 public class ConfirmacionActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        WindowCompat.enableEdgeToEdge(getWindow());
         setContentView(R.layout.activity_confirmacion);
-        ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main), (v, insets) -> {
-            Insets systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars());
-            v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
-            return insets;
+
+        TextView tvResumen = findViewById(R.id.tvResumen);
+        Button btnSalir = findViewById(R.id.btnSalir);
+
+        String cliente = getIntent().getStringExtra("CLIENTE");
+        String moto = getIntent().getStringExtra("MOTO");
+        String motor = getIntent().getStringExtra("MOTOR");
+        String prioridad = getIntent().getStringExtra("PRIORIDAD");
+
+        String textoFinal = "Propietario: " + cliente + "\n\n" +
+                "Motocicleta: " + moto + "\n\n" +
+                "Tipo de Motor: " + motor + "\n\n" +
+                "Prioridad: " + prioridad;
+
+        tvResumen.setText(textoFinal);
+
+        btnSalir.setOnClickListener(v -> {
+            finishAffinity(); // Cierra todas las pantallas de la app
+            System.exit(0);   // Detiene el proceso por completo
         });
     }
 }
